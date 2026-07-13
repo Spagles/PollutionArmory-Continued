@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+
+  <Pollution_grenade.label>污染榴弹</Pollution_grenade.label>
+  <Pollution_grenade.description>此榴弹，由通炸药与有毒垃圾混合而成，不仅在爆炸时产生剧烈冲击，还会释放有毒气体。尽管污染程度较轻，仍需谨慎使用</Pollution_grenade.description>
+
+  
+  <Pollution_MZOOS.label>污染磁爆弹</Pollution_MZOOS.label>
+  <Pollution_MZOOS.description>污染磁爆弹，不仅污染风险较低，而且威力巨大，甚至有可能对憎恶毒蜂完成一击必杀!</Pollution_MZOOS.description>
+
+  <Pollution_XMS.label>发射三颗污染榴弹</Pollution_XMS.label>
+  <Pollution_XMS.description>尽管威力有限，但其三连发的爆发射击能力，使其在对抗大多数敌人时游刃有余。使用时会产生少量污染，务必谨慎操作!</Pollution_XMS.description>
+
+  <Pollution_hive.label>召唤虫巢</Pollution_hive.label>
+  <Pollution_hive.description>发射一枚引虫炮弹，可召唤出三个虫巢，其控制力之强，连机械体也难逃其掌控。然而，这些虫巢不分敌我，对所有人展开攻击，使用时需谨慎!</Pollution_hive.description>
+
+
+</LanguageData>

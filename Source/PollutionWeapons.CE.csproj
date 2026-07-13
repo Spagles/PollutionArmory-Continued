@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AssemblyName>PollutionWeapons.CE</AssemblyName>
+    <RootNamespace>PollutionWeaponsCE</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>..\1.6\CE\Assemblies\</OutputPath>
+    <RimWorldManagedDir Condition="'$(RimWorldManagedDir)' == '' and '$(RimWorldDir)' != ''">$(RimWorldDir)\RimWorldWin64_Data\Managed</RimWorldManagedDir>
+    <CombatExtendedAssemblyPath Condition="'$(CombatExtendedAssemblyPath)' == '' and '$(RimWorldDir)' != ''">$(RimWorldDir)\..\..\workshop\content\294100\2890901044\Assemblies\CombatExtended.dll</CombatExtendedAssemblyPath>
+    <DebugType Condition="'$(Configuration)' == 'Release'">none</DebugType>
+    <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
+  </PropertyGroup>
+
+  <Target Name="ValidateCombatExtendedReference" BeforeTargets="ResolveReferences">
+    <Error Condition="'$(RimWorldManagedDir)' == ''" Text="Set RimWorldDir or RimWorldManagedDir when building PollutionWeapons.CE." />
+    <Error Condition="!Exists('$(CombatExtendedAssemblyPath)')" Text="Set CombatExtendedAssemblyPath to CombatExtended.dll when building PollutionWeapons.CE." />
+  </Target>
+
+  <ItemGroup>
+    <Compile Include="CE\**\*.cs" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net472" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(RimWorldManagedDir)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(RimWorldManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>$(RimWorldManagedDir)\netstandard.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="CombatExtended">
+      <HintPath>$(CombatExtendedAssemblyPath)</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

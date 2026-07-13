@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MakePA_CE_Ammo_PAR.label>制造污染步枪弹 x100</MakePA_CE_Ammo_PAR.label>
+  <MakePA_CE_Ammo_PAR.jobString>正在制造污染步枪弹。</MakePA_CE_Ammo_PAR.jobString>
+  <MakePA_CE_Ammo_PSR.label>制造污染狙击枪弹 x25</MakePA_CE_Ammo_PSR.label>
+  <MakePA_CE_Ammo_PSR.jobString>正在制造污染狙击枪弹。</MakePA_CE_Ammo_PSR.jobString>
+  <MakePA_CE_Ammo_Sprayer.label>制造腐蚀喷射罐 x100</MakePA_CE_Ammo_Sprayer.label>
+  <MakePA_CE_Ammo_Sprayer.jobString>正在制造腐蚀喷射罐。</MakePA_CE_Ammo_Sprayer.jobString>
+  <MakePA_CE_Ammo_PS.label>制造污染霰弹 x100</MakePA_CE_Ammo_PS.label>
+  <MakePA_CE_Ammo_PS.jobString>正在制造污染霰弹。</MakePA_CE_Ammo_PS.jobString>
+</LanguageData>

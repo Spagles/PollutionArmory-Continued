@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>PS</defName>
+    <label>Pollution Shotgun</label>
+    <description>The Pollution Shotgun is a weapon designed for close-quarters combat, capable of firing three small-caliber grenades in rapid succession.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>XM144</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <!--材料1-->
+    <costList>
+      <Steel>75</Steel>
+      <ComponentIndustrial>7</ComponentIndustrial>
+      <Wastepack>35</Wastepack>
+    </costList>
+    <statBases>
+      <WorkToMake>35000</WorkToMake>
+      <Mass>5</Mass>
+      <AccuracyTouch>0.6</AccuracyTouch>
+      <AccuracyShort>0.45</AccuracyShort>
+      <AccuracyMedium>0.40</AccuracyMedium>
+      <AccuracyLong>0.35</AccuracyLong>
+      <RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <weaponTags Inherit="False">
+      <li>DGB</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedHeavy</li>
+      <li>LongShots</li>
+    </weaponClasses>
+    <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+    <recipeMaker>
+    <!--建造-->
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>  <!--研究-->
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <displayPriority>435</displayPriority>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass Inherit="False">Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_XM</defaultProjectile>
+        <warmupTime>1</warmupTime>
+        <range>20</range>
+        <burstShotCount>6</burstShotCount>
+        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+        <soundCast>MAS</soundCast>
+        <stopBurstWithoutLos>true</stopBurstWithoutLos>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <!-- <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams> -->
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <!--近战。工具-->
+    <tools>
+      <li>
+        <label>limb</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <rotateInShelves>false</rotateInShelves>
+
+    <comps Inherit="False">
+
+ <!--能力-->
+      <li Class="CompProperties_EquippableAbilityReloadable">
+        <abilityDef>Pollution_XMS</abilityDef>
+        <maxCharges>6</maxCharges>
+        <chargeNoun>Reloading</chargeNoun>
+        <soundReload>Interact_Rifle</soundReload>
+        <ammoDef>Wastepack</ammoDef><!--消耗-->
+        <ammoCountToRefill>5</ammoCountToRefill>
+        <baseReloadTicks>60</baseReloadTicks>
+      </li>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Styleable"/>
+      <li Class="CompProperties_Biocodable"/>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <tickerType>Normal</tickerType>
+
+  </ThingDef>
+
+  <!--弹药-->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_XM</defName>
+    <label>Bullet_XM</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>9</damageAmountBase>
+      <stoppingPower>2</stoppingPower>
+      <armorPenetrationBase>0.15</armorPenetrationBase>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+
+
+</Defs>

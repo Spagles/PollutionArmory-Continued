@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <AbilityDef>
+    <defName>Pollution_grenade</defName>
+    <label>grenade</label>
+    <description>Launch one grenade that can cause pollution.</description>
+    <iconPath>UI/grenade_A</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>25</range>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      <warmupTime>1.5</warmupTime>
+      <soundCast>AK_L</soundCast>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>Pollution_grenade_B</projectileDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Pollution_grenade_B</defName>
+    <label>Pollution_grenade_B</label>
+    <graphicData>
+      <texPath>grenade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>40</speed>
+      <damageDef>Bomb</damageDef>
+      <postExplosionGasType>ToxGas</postExplosionGasType>
+      <armorPenetrationBase>4</armorPenetrationBase>
+      <damageAmountBase>40</damageAmountBase>
+      <soundExplode>AK_B</soundExplode>
+      <explosionRadius>3</explosionRadius>
+      <preExplosionSpawnChance>0.3</preExplosionSpawnChance>
+      <ai_IsIncendiary>false</ai_IsIncendiary>
+      <arcHeightFactor>0.55</arcHeightFactor>
+      <shadowSize>0.6</shadowSize>
+      <explosionDelay>5</explosionDelay>
+      <postExplosionSpawnThingDef>Pollution_A</postExplosionSpawnThingDef>
+			<postExplosionSpawnChance>0.2</postExplosionSpawnChance>
+			<postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+    </projectile>
+  </ThingDef>
+
+  <SoundDef>
+    <defName>AK_B</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>AK_B</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>40~50</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Se</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Se</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>40~45</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+                   <!--M 200-->
+  <AbilityDef>
+    <defName>Pollution_MZOOS</defName>
+    <label>Projectile</label>
+    <description>Electromagnetic Projectile</description>
+    <iconPath>UI/M200_P_UI</iconPath>
+
+    <aiCanUse>true</aiCanUse>
+    <warmupStartSound>M_SQ_A</warmupStartSound>
+    
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>50</range>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      <warmupTime>1.5</warmupTime>    
+      <soundCast>M_SH</soundCast>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>Pollution_MZOOS_A</projectileDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!--子弹-->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Pollution_MZOOS_A</defName>
+    <label>Pollution_MZOOS_A</label>
+    <graphicData>
+      <texPath>M_bullets</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>180</speed>
+      <damageDef>Bomb</damageDef>
+      <postExplosionGasType>ToxGas</postExplosionGasType>
+      <soundExplode>M_hit</soundExplode>
+      <explosionRadius>1.9</explosionRadius>
+      <damageAmountBase>150</damageAmountBase>
+      <armorPenetrationBase>10</armorPenetrationBase>
+      <shadowSize>1.2</shadowSize>
+      <!-- <explosionDelay>1</explosionDelay> -->
+      <postExplosionSpawnThingDef>Pollution_MZOOS_B</postExplosionSpawnThingDef>
+			<postExplosionSpawnChance>0.06</postExplosionSpawnChance>
+			<postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+    </projectile>
+  </ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Pollution_MZOOS_B</defName>
+		<label>Pollution_MZOOS_B</label>
+		<graphicData>
+			<texPath>Pollution_bomb</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<thingClass>PollutionWweapons.Projectile_WR</thingClass>
+		<projectile>
+      <damageDef>EMP</damageDef>
+			<damageAmountBase>5</damageAmountBase>
+			<explosionDelay>1</explosionDelay>
+			<speed>150</speed>
+			<explosionRadius>1</explosionRadius>
+			<flyOverhead>true</flyOverhead>
+      <postExplosionGasType>ToxGas</postExplosionGasType>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundExplode>Se</soundExplode>
+			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+      <screenShakeFactor>0.1</screenShakeFactor>
+		</projectile>
+	</ThingDef>
+
+                 <!--XM144-->
+
+  <AbilityDef>
+    <defName>Pollution_XMS</defName>
+    <label>grenade X3</label>
+    <description>Launch three grenades that can cause pollution.</description>
+    <iconPath>UI/grenadeT</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <verbProperties>
+      <!-- <verbClass>Verb_CastAbility</verbClass> -->
+      <verbClass>PollutionWweapons.CastAbility_Continuous</verbClass>
+
+
+      <burstShotCount>3</burstShotCount>
+      <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+      
+      <forcedMissRadius>2.9</forcedMissRadius>
+      <range>22</range>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      <warmupTime>1.5</warmupTime>
+      <soundCast>XM_L</soundCast>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>Pollution_XMS_B</projectileDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Pollution_XMS_B</defName>
+    <label>Pollution_XMS_B</label>
+    <graphicData>
+      <texPath>grenade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.5</drawSize>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>40</speed>
+      <damageDef>Bomb</damageDef>
+      <postExplosionGasType>ToxGas</postExplosionGasType>
+      <damageAmountBase>27</damageAmountBase>
+      <soundExplode>AK_B</soundExplode>
+      <explosionRadius>2</explosionRadius>
+      <preExplosionSpawnChance>0.3</preExplosionSpawnChance>
+      <ai_IsIncendiary>false</ai_IsIncendiary>
+      <arcHeightFactor>0.55</arcHeightFactor>
+      <shadowSize>0.6</shadowSize>
+      <explosionDelay>5</explosionDelay>
+      <postExplosionSpawnThingDef>Pollution_A</postExplosionSpawnThingDef>
+			<postExplosionSpawnChance>0.2</postExplosionSpawnChance>
+			<postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+    </projectile>
+  </ThingDef>
+
+<!--Pollution_Sprayer-->
+  <AbilityDef>
+    <defName>Pollution_hive</defName>
+    <label>Summoning hive</label>
+    <description>Launching the stored pollution waste at a high altitude can summon the insect nest.</description>
+    <iconPath>UI/Hive</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>40</range>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      <warmupTime>2</warmupTime>
+      <soundCast>moz</soundCast>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>Pollution_hive_B</projectileDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Pollution_hive_B</defName>
+    <label>Pollution_hive_B</label>
+    <graphicData>
+      <texPath>SP_B</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+		<thingClass>PollutionWweapons.Projectile_Hive</thingClass>	
+    <projectile>
+      <speed>100</speed>
+      <damageDef>Stun</damageDef>
+      <stoppingPower>20</stoppingPower>
+      <postExplosionGasType>ToxGas</postExplosionGasType>
+      <armorPenetrationBase>4</armorPenetrationBase>
+      <damageAmountBase>40</damageAmountBase>
+      <soundExplode>moz_B</soundExplode>
+      <explosionRadius>1</explosionRadius>
+      <arcHeightFactor>0.55</arcHeightFactor>
+      <shadowSize>1.2</shadowSize>
+      <explosionDelay>10</explosionDelay>
+      <postExplosionSpawnThingDef>TunnelHiveSpawner</postExplosionSpawnThingDef>
+      <!-- <postExplosionSpawnThingDef>Hive</postExplosionSpawnThingDef> -->
+			<postExplosionSpawnChance>0.5</postExplosionSpawnChance>
+
+    </projectile>
+  </ThingDef>
+
+
+
+
+<!--声音-->
+  <SoundDef>
+    <defName>M_SQ_A</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>M_SQ_A</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>45~80</volumeRange>      
+        <pitchRange>0.9940217~1.584783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>M_SH</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>M_SH</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>35~40</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>M_S</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>M_S</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>20~25</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>M_hit</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>M_hit</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>30~35</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>XM_L</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>XM_L</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>30~35</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>PRL_L</defName> 
+    <context>MapOnly</context>
+    <maxSimultaneous>6</maxSimultaneous>
+    <priorityMode>PrioritizeNewest</priorityMode>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>PRL_L</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>30~35</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+    <SoundDef>
+    <defName>PRL_B</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>PRL_B</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>30~35</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+    <SoundDef>
+    <defName>PSS</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>PSS</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>15~20</volumeRange>      
+        <pitchRange>0.9940217~1.584783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>moz</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>moz</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>40~45</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>moz_B</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>moz_B</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>30~35</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>MAS</defName> 
+    <maxSimultaneous>1</maxSimultaneous>
+    <priorityMode>PrioritizeNewest</priorityMode>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>MAS</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>35~40</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>
+
+

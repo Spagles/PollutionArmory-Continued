@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <PAR.label>污染突击步枪</PAR.label>
+  <PAR.description>污染突击步枪，继承自AK47的传奇血统，经过精心改良，其特制的污染榴弹具备毁灭性的破坏力，能够对敌方造成致命的广泛伤害。</PAR.description>
+
+
+  <MPRL.label>六管污染火箭发射器</MPRL.label>
+  <MPRL.description>六管污染火箭发射器是一种多管发射器能够连续发射六枚污染火箭，旨在为对抗敌军提供集中的污染覆盖</MPRL.description>
+
+  <PSR.label>污染狙击枪</PSR.label>
+  <PSR.description>污染狙击步枪是一种M200的改进型号，配备电磁加速系统，常规模式下发射毒素子弹，对付一般敌人。特殊模式下发射污染磁爆弹，对付强敌，但可能造成污染风险。</PSR.description>
+
+  <Pollution_Bomb.label>污染炸弹</Pollution_Bomb.label>
+  <Pollution_Bomb.description>100公斤污染炸弹是一款重型炸弹，具备对地面目标造成巨大破坏的能力。它的外观虽然酷似航空炸弹但实际上并非通过飞机来投放。</Pollution_Bomb.description>
+
+  <Pollution_Sprayer.label>污染喷射器</Pollution_Sprayer.label>
+  <Pollution_Sprayer.description>唯有深刻洞察有毒废物的本质，方能创造出此等利器。它能够将处理过的有毒物质大量喷射，对敌人施加持续的酸性灼伤，且不留下任何污染痕迹。此外，它还能发射污染炮弹，既使敌人陷入眩晕，又可召唤出虫巢</Pollution_Sprayer.description>
+
+  <PRL.label>污染火箭发射器</PRL.label>
+  <PRL.description>一次性污染火箭发射器是一种便携式武器设计为一次性使用，能够发射含有污染物的火箭。</PRL.description>
+
+  <PS.label>污染霰弹枪</PS.label>
+  <PS.description>污染霰弹枪，一款专为激烈近战环境打造的强力武器，以其大口径霰弹能够轻易撕烈接近的敌人。得益于其创新设计，这把霰弹枪能够以惊人的速度连续发射三枚小口径榴弹，确保在战场上的火力压制。</PS.description>
+
+
+</LanguageData>

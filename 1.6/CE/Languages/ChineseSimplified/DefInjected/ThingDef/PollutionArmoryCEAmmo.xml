@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PA_CE_AmmoPollution.label>污染武器弹药</PA_CE_AmmoPollution.label>
+  <PA_CE_Ammo_PAR.label>污染步枪弹</PA_CE_Ammo_PAR.label>
+  <PA_CE_Ammo_PSR.label>污染狙击枪弹</PA_CE_Ammo_PSR.label>
+  <PA_CE_Ammo_Sprayer.label>腐蚀喷射罐</PA_CE_Ammo_Sprayer.label>
+  <PA_CE_Ammo_PS.label>污染霰弹</PA_CE_Ammo_PS.label>
+</LanguageData>

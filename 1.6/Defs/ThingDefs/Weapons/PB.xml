@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>Pollution_Bomb</defName>
+    <label>Pollution Bomb</label>
+    <description>The 100kg Pollution Bomb is a ground-launched heavy bomb designed for extensive contamination of ground targets, but it is not deployed by aircraft.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Pollution_bomb</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.5</drawSize>
+      <onGroundRandomRotateAngle>360</onGroundRandomRotateAngle>
+    </graphicData>
+
+    <uiIconScale>1.3</uiIconScale>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <!--材料-->
+    <costList>
+        <Steel>100</Steel>
+        <ComponentIndustrial>1</ComponentIndustrial>
+        <Wastepack>45</Wastepack>
+    </costList>
+
+    <statBases>
+      <WorkToMake>1200</WorkToMake>
+      <Mass>60</Mass>
+      <AccuracyTouch>0.75</AccuracyTouch>
+      <AccuracyShort>0.65</AccuracyShort>
+      <AccuracyMedium>0.45</AccuracyMedium>
+      <AccuracyLong>0.25</AccuracyLong>
+      <RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags Inherit="False">
+      <li>HeavyTox</li>
+      <li>RangedHeavy</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedHeavy</li>
+    </weaponClasses>
+    <recipeMaker>
+    <!--建造-->
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <researchPrerequisite>Mortars</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <displayPriority>510</displayPriority>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_ShootOneUse</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_PB</defaultProjectile>
+        <forcedMissRadius>2.9</forcedMissRadius>
+        <warmupTime>0.3</warmupTime>
+        <ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+        <range>3</range>
+
+        <!-- <soundCast>PBB</soundCast> -->
+        <stopBurstWithoutLos>false</stopBurstWithoutLos>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <muzzleFlashScale>14</muzzleFlashScale>
+      </li>
+    </verbs>
+    <!--近战。工具-->
+    <tools>
+      <li>
+        <label>limb</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <rotateInShelves>false</rotateInShelves>
+<!--损坏-->
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <comps>
+
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>5</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <postExplosionSpawnThingDef>Pollution_A</postExplosionSpawnThingDef>
+	  		<postExplosionSpawnChance>0.5</postExplosionSpawnChance>
+		  	<postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+
+
+    </comps>
+    <tickerType>Normal</tickerType>
+
+
+
+
+  </ThingDef>
+
+  <!--弹药-->
+  <ThingDef ParentName="BaseProjectileNeolithic">
+    <defName>Bullet_PB</defName>
+    <label>Bullet_PB</label>
+
+    <graphicData>
+      <texPath>Pollution_bomb</texPath>
+      <drawSize>1.5</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>200</damageAmountBase>
+      <explosionRadius>17</explosionRadius>
+      <explosionEffect>GiantExplosion</explosionEffect>
+      <speed>25</speed>
+      <soundExplode>PBB</soundExplode>
+      <postExplosionSpawnThingDef>Pollution_A</postExplosionSpawnThingDef>
+			<postExplosionSpawnChance>0.05</postExplosionSpawnChance>
+			<postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+      <armorPenetrationBase>2</armorPenetrationBase>
+      <screenShakeFactor>4</screenShakeFactor>
+      <!-- <explosiveDamageType>ToxGas</explosiveDamageType>
+      <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode> -->
+    </projectile>
+  </ThingDef>
+  <!--子子弹-->
+	<ThingDef ParentName="BaseBullet">
+		<defName>Pollution_A</defName>
+		<label>Pollution A</label>
+		<graphicData>
+			<texPath>Pollution_bomb</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<thingClass>PollutionWweapons.Projectile_WR</thingClass>
+		<projectile>
+			<damageDef>ToxGas</damageDef>
+			<damageAmountBase>20</damageAmountBase>
+			<explosionDelay>50</explosionDelay>
+			<speed>100</speed>
+			<explosionRadius>1</explosionRadius>
+			<flyOverhead>true</flyOverhead>
+      <postExplosionGasType>ToxGas</postExplosionGasType>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundExplode>Se</soundExplode>
+			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+      <screenShakeFactor>0.1</screenShakeFactor>
+		</projectile>
+	</ThingDef>
+
+
+
+
+
+<!--声音-->
+  <SoundDef>
+    <defName>PBB</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>PBB</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>25~3</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+
+</Defs>

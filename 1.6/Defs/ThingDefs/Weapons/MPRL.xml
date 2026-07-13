@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BaseGun">
+    <defName>MPRL</defName>
+    <label>Multi-Pollution Rocket Launcher</label>
+    <description>The 6-tube Pollution Rocket Launcher is a multi-barrel launcher capable of firing six contamination rockets in succession, designed to provide concentrated pollution coverage against enemy forces.</description>
+    <!-- <possessionCount>3</possessionCount> -->
+    <tickerType>Normal</tickerType>
+    <smeltable>false</smeltable>
+    <graphicData>
+      <texPath>MPRL</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.7</drawSize>
+
+    </graphicData>
+
+    <uiIconScale>1.2</uiIconScale>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <!--材料-->
+    <costList>
+        <Steel>200</Steel>
+        <ComponentIndustrial>4</ComponentIndustrial>
+        <Wastepack>80</Wastepack>
+    </costList>
+    <statBases>
+      <WorkToMake>35000</WorkToMake>
+      <Mass>4</Mass>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.75</AccuracyMedium>
+      <AccuracyLong>0.70</AccuracyLong>
+      <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <weaponTags Inherit="False">
+      <li>DGB</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedHeavy</li>
+      <li>LongShots</li>
+    </weaponClasses>
+    <recipeMaker>
+    <!--建造-->
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <researchPrerequisite>Mortars</researchPrerequisite>  <!--研究-->
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <displayPriority>510</displayPriority>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_ShootOneUse</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>PRL_bullets</defaultProjectile>
+        <forcedMissRadius>4</forcedMissRadius>
+        <burstShotCount>6</burstShotCount>
+        <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+        <warmupTime>4</warmupTime>
+        <ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+        <range>40</range>
+        <soundCast>PRL_L</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <onlyManualCast>true</onlyManualCast>
+        <stopBurstWithoutLos>false</stopBurstWithoutLos>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <muzzleFlashScale>14</muzzleFlashScale>
+      </li>
+    </verbs>
+    <!--近战。工具-->
+    <tools>
+      <li>
+        <label>limb</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <rotateInShelves>false</rotateInShelves>
+
+  </ThingDef>
+
+
+<!--声音-->
+
+
+
+
+
+</Defs>

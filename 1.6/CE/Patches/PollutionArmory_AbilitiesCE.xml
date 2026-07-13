@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/AbilityDef[defName="Pollution_grenade"]/verbProperties</xpath>
+    <value>
+      <verbProperties Class="CombatExtended.VerbPropertiesCE">
+        <verbClass>CombatExtended.Verb_AbilityShootCE</verbClass>
+        <defaultProjectile>Pollution_grenade_B</defaultProjectile>
+        <range>25</range>
+        <warmupTime>1.5</warmupTime>
+        <soundCast>AK_L</soundCast>
+        <muzzleFlashScale>0</muzzleFlashScale>
+        <ai_IsWeapon>false</ai_IsWeapon>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </verbProperties>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/AbilityDef[defName="Pollution_grenade"]/comps/li[@Class="CompProperties_AbilityLaunchProjectile"]/projectileDef</xpath>
+    <value>
+      <projectileDef>Pollution_grenade_B</projectileDef>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/AbilityDef[defName="Pollution_MZOOS"]/verbProperties</xpath>
+    <value>
+      <verbProperties Class="CombatExtended.VerbPropertiesCE">
+        <verbClass>CombatExtended.Verb_AbilityShootCE</verbClass>
+        <defaultProjectile>Pollution_MZOOS_A</defaultProjectile>
+        <range>50</range>
+        <warmupTime>1.5</warmupTime>
+        <soundCast>M_SH</soundCast>
+        <muzzleFlashScale>0</muzzleFlashScale>
+        <ai_IsWeapon>false</ai_IsWeapon>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </verbProperties>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/AbilityDef[defName="Pollution_MZOOS"]/comps/li[@Class="CompProperties_AbilityLaunchProjectile"]/projectileDef</xpath>
+    <value>
+      <projectileDef>Pollution_MZOOS_A</projectileDef>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/AbilityDef[defName="Pollution_XMS"]/verbProperties</xpath>
+    <value>
+      <verbProperties Class="CombatExtended.VerbPropertiesCE">
+        <verbClass>PollutionWeaponsCE.CastAbilityContinuousCE</verbClass>
+        <defaultProjectile>Pollution_XMS_B</defaultProjectile>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+        <forcedMissRadius>2.9</forcedMissRadius>
+        <range>22</range>
+        <warmupTime>1.5</warmupTime>
+        <soundCast>XM_L</soundCast>
+        <muzzleFlashScale>0</muzzleFlashScale>
+        <ai_IsWeapon>false</ai_IsWeapon>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </verbProperties>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/AbilityDef[defName="Pollution_XMS"]/comps/li[@Class="CompProperties_AbilityLaunchProjectile"]/projectileDef</xpath>
+    <value>
+      <projectileDef>Pollution_XMS_B</projectileDef>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/AbilityDef[defName="Pollution_hive"]/verbProperties</xpath>
+    <value>
+      <verbProperties Class="CombatExtended.VerbPropertiesCE">
+        <verbClass>CombatExtended.Verb_AbilityShootCE</verbClass>
+        <defaultProjectile>Pollution_hive_B</defaultProjectile>
+        <range>40</range>
+        <warmupTime>2</warmupTime>
+        <soundCast>moz</soundCast>
+        <muzzleFlashScale>0</muzzleFlashScale>
+        <ai_IsWeapon>false</ai_IsWeapon>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </verbProperties>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/AbilityDef[defName="Pollution_hive"]/comps/li[@Class="CompProperties_AbilityLaunchProjectile"]/projectileDef</xpath>
+    <value>
+      <projectileDef>Pollution_hive_B</projectileDef>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Pollution_grenade_B"]/thingClass</xpath>
+    <value>
+      <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Pollution_grenade_B"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <speed>40</speed>
+        <damageDef>Bomb</damageDef>
+        <postExplosionGasType>ToxGas</postExplosionGasType>
+        <damageAmountBase>40</damageAmountBase>
+        <soundExplode>AK_B</soundExplode>
+        <explosionRadius>3</explosionRadius>
+        <preExplosionSpawnChance>0.3</preExplosionSpawnChance>
+        <ai_IsIncendiary>false</ai_IsIncendiary>
+        <arcHeightFactor>0.55</arcHeightFactor>
+        <shadowSize>0.6</shadowSize>
+        <explosionDelay>5</explosionDelay>
+        <postExplosionSpawnThingDef>Pollution_A</postExplosionSpawnThingDef>
+        <postExplosionSpawnChance>0.2</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <armorPenetrationSharp>0</armorPenetrationSharp>
+        <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        <suppressionFactor>3</suppressionFactor>
+        <dangerFactor>2</dangerFactor>
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Pollution_MZOOS_A"]/thingClass</xpath>
+    <value>
+      <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Pollution_MZOOS_A"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <speed>180</speed>
+        <damageDef>Bomb</damageDef>
+        <postExplosionGasType>ToxGas</postExplosionGasType>
+        <soundExplode>M_hit</soundExplode>
+        <explosionRadius>1.9</explosionRadius>
+        <damageAmountBase>150</damageAmountBase>
+        <shadowSize>1.2</shadowSize>
+        <postExplosionSpawnThingDef>Pollution_MZOOS_B</postExplosionSpawnThingDef>
+        <postExplosionSpawnChance>0.06</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <armorPenetrationSharp>0</armorPenetrationSharp>
+        <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        <suppressionFactor>3</suppressionFactor>
+        <dangerFactor>2</dangerFactor>
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Pollution_XMS_B"]/thingClass</xpath>
+    <value>
+      <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Pollution_XMS_B"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <speed>40</speed>
+        <damageDef>Bomb</damageDef>
+        <postExplosionGasType>ToxGas</postExplosionGasType>
+        <damageAmountBase>27</damageAmountBase>
+        <soundExplode>AK_B</soundExplode>
+        <explosionRadius>2</explosionRadius>
+        <preExplosionSpawnChance>0.3</preExplosionSpawnChance>
+        <ai_IsIncendiary>false</ai_IsIncendiary>
+        <arcHeightFactor>0.55</arcHeightFactor>
+        <shadowSize>0.6</shadowSize>
+        <explosionDelay>5</explosionDelay>
+        <postExplosionSpawnThingDef>Pollution_A</postExplosionSpawnThingDef>
+        <postExplosionSpawnChance>0.2</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <armorPenetrationSharp>0</armorPenetrationSharp>
+        <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        <suppressionFactor>3</suppressionFactor>
+        <dangerFactor>2</dangerFactor>
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Pollution_hive_B"]/thingClass</xpath>
+    <value>
+      <thingClass>PollutionWeaponsCE.ProjectileHiveCE</thingClass>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Pollution_hive_B"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <speed>100</speed>
+        <damageDef>Stun</damageDef>
+        <stoppingPower>20</stoppingPower>
+        <postExplosionGasType>ToxGas</postExplosionGasType>
+        <damageAmountBase>40</damageAmountBase>
+        <soundExplode>moz_B</soundExplode>
+        <explosionRadius>1</explosionRadius>
+        <arcHeightFactor>0.55</arcHeightFactor>
+        <shadowSize>1.2</shadowSize>
+        <explosionDelay>10</explosionDelay>
+        <postExplosionSpawnThingDef>TunnelHiveSpawner</postExplosionSpawnThingDef>
+        <postExplosionSpawnChance>0.5</postExplosionSpawnChance>
+        <armorPenetrationSharp>0</armorPenetrationSharp>
+        <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        <suppressionFactor>2</suppressionFactor>
+        <dangerFactor>2</dangerFactor>
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Pollution_A"]/thingClass</xpath>
+    <value>
+      <thingClass>PollutionWeaponsCE.ProjectileResidueCE</thingClass>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Pollution_A"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>ToxGas</damageDef>
+        <damageAmountBase>20</damageAmountBase>
+        <explosionDelay>50</explosionDelay>
+        <speed>100</speed>
+        <explosionRadius>1</explosionRadius>
+        <flyOverhead>true</flyOverhead>
+        <postExplosionGasType>ToxGas</postExplosionGasType>
+        <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+        <soundExplode>Se</soundExplode>
+        <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+        <soundAmbient>MortarRound_Ambient</soundAmbient>
+        <screenShakeFactor>0.1</screenShakeFactor>
+        <armorPenetrationSharp>0</armorPenetrationSharp>
+        <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        <suppressionFactor>0</suppressionFactor>
+        <dangerFactor>2</dangerFactor>
+      </projectile>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Pollution_MZOOS_B"]/thingClass</xpath>
+    <value>
+      <thingClass>PollutionWeaponsCE.ProjectileResidueCE</thingClass>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Pollution_MZOOS_B"]/projectile</xpath>
+    <value>
+      <projectile Class="CombatExtended.ProjectilePropertiesCE">
+        <damageDef>EMP</damageDef>
+        <damageAmountBase>5</damageAmountBase>
+        <explosionDelay>1</explosionDelay>
+        <speed>150</speed>
+        <explosionRadius>1</explosionRadius>
+        <flyOverhead>true</flyOverhead>
+        <postExplosionGasType>ToxGas</postExplosionGasType>
+        <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+        <soundExplode>Se</soundExplode>
+        <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+        <soundAmbient>MortarRound_Ambient</soundAmbient>
+        <screenShakeFactor>0.1</screenShakeFactor>
+        <armorPenetrationSharp>0</armorPenetrationSharp>
+        <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        <suppressionFactor>0</suppressionFactor>
+        <dangerFactor>2</dangerFactor>
+      </projectile>
+    </value>
+  </Operation>
+
+</Patch>

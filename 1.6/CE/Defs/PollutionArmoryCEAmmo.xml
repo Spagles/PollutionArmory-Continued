@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingCategoryDef>
+    <defName>PA_CE_AmmoPollution</defName>
+    <label>pollution weapon ammunition</label>
+    <parent>AmmoAdvanced</parent>
+    <iconPath>UI/Icons/ThingCategories/CaliberCharge</iconPath>
+  </ThingCategoryDef>
+
+  <CombatExtended.AmmoCategoryDef>
+    <defName>PA_CE_AcidFuel</defName>
+    <label>corrosive compound</label>
+    <labelShort>acid</labelShort>
+    <description>A corrosive compound refined from treated pollution waste.</description>
+  </CombatExtended.AmmoCategoryDef>
+
+  <!-- Each weapon keeps a separate ammo set so specialty rounds cannot cross-load. -->
+  <CombatExtended.AmmoSetDef>
+    <defName>PA_CE_AmmoSet_PAR</defName>
+    <label>pollution rifle cartridge</label>
+    <ammoTypes>
+      <PA_CE_Ammo_PAR>PA_CE_Bullet_PAR</PA_CE_Ammo_PAR>
+    </ammoTypes>
+    <similarTo>AmmoSet_RifleIntermediate</similarTo>
+  </CombatExtended.AmmoSetDef>
+
+  <CombatExtended.AmmoSetDef>
+    <defName>PA_CE_AmmoSet_PSR</defName>
+    <label>pollution sniper cartridge</label>
+    <ammoTypes>
+      <PA_CE_Ammo_PSR>PA_CE_Bullet_PSR</PA_CE_Ammo_PSR>
+    </ammoTypes>
+    <similarTo>AmmoSet_ChargedRifle</similarTo>
+  </CombatExtended.AmmoSetDef>
+
+  <CombatExtended.AmmoSetDef>
+    <defName>PA_CE_AmmoSet_Sprayer</defName>
+    <label>corrosive sprayer canister</label>
+    <ammoTypes>
+      <PA_CE_Ammo_Sprayer>PA_CE_Bullet_Sprayer</PA_CE_Ammo_Sprayer>
+    </ammoTypes>
+    <similarTo>AmmoSet_Flamethrower</similarTo>
+  </CombatExtended.AmmoSetDef>
+
+  <CombatExtended.AmmoSetDef>
+    <defName>PA_CE_AmmoSet_PS</defName>
+    <label>pollution shotgun shell</label>
+    <ammoTypes>
+      <PA_CE_Ammo_PS>PA_CE_Bullet_PS</PA_CE_Ammo_PS>
+    </ammoTypes>
+    <similarTo>AmmoSet_Shotgun</similarTo>
+  </CombatExtended.AmmoSetDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" Name="PA_CE_RifleAmmoBase" ParentName="SmallAmmoBase" Abstract="True">
+    <description>Specialized ammunition manufactured from treated pollution waste.</description>
+    <statBases>
+      <Mass>0.013</Mass>
+      <Bulk>0.02</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>PA_CE_AmmoPollution</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="PA_CE_RifleAmmoBase">
+    <defName>PA_CE_Ammo_PAR</defName>
+    <label>pollution rifle cartridge</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rifle/FMJ</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>FullMetalJacket</ammoClass>
+    <cookOffProjectile>PA_CE_Bullet_PAR</cookOffProjectile>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="PA_CE_RifleAmmoBase">
+    <defName>PA_CE_Ammo_PSR</defName>
+    <label>pollution sniper cartridge</label>
+    <graphicData>
+      <texPath>Things/Ammo/Charged/SmallRegular</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>0.028</Mass>
+      <Bulk>0.04</Bulk>
+    </statBases>
+    <ammoClass>Charged</ammoClass>
+    <cookOffProjectile>PA_CE_Bullet_PSR</cookOffProjectile>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" Name="PA_CE_SprayerAmmoBase" ParentName="SpacerSmallAmmoBase" Abstract="True">
+    <description>Corrosive compound refined from treated pollution waste.</description>
+    <statBases>
+      <Mass>0.05</Mass>
+      <Bulk>0.10</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting_FabricationBench</li>
+    </tradeTags>
+    <thingCategories>
+      <li>PA_CE_AmmoPollution</li>
+    </thingCategories>
+    <stackLimit>500</stackLimit>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="PA_CE_SprayerAmmoBase">
+    <defName>PA_CE_Ammo_Sprayer</defName>
+    <label>corrosive sprayer canister</label>
+    <graphicData>
+      <texPath>Things/Ammo/FuelTank/Prometheum</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>PA_CE_AcidFuel</ammoClass>
+    <cookOffProjectile>PA_CE_Bullet_Sprayer</cookOffProjectile>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" Name="PA_CE_ShotgunAmmoBase" ParentName="SmallAmmoBase" Abstract="True">
+    <description>Pollution-treated scatter shells for close-range use.</description>
+    <statBases>
+      <Mass>0.045</Mass>
+      <Bulk>0.05</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>PA_CE_AmmoPollution</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="PA_CE_ShotgunAmmoBase">
+    <defName>PA_CE_Ammo_PS</defName>
+    <label>pollution shotgun shell</label>
+    <graphicData>
+      <texPath>Things/Ammo/Shotgun/Shot</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <ammoClass>BuckShot</ammoClass>
+    <cookOffProjectile>PA_CE_Bullet_PS</cookOffProjectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBulletCE">
+    <defName>PA_CE_Bullet_PAR</defName>
+    <label>pollution rifle round</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>13</damageAmountBase>
+      <speed>70</speed>
+      <armorPenetrationSharp>10</armorPenetrationSharp>
+      <armorPenetrationBlunt>20</armorPenetrationBlunt>
+      <suppressionFactor>0.5</suppressionFactor>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBulletCE">
+    <defName>PA_CE_Bullet_PSR</defName>
+    <label>pollution sniper round</label>
+    <graphicData>
+      <texPath>Things/Projectile/ToxicNeedleShot</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>BulletToxic</damageDef>
+      <damageAmountBase>40</damageAmountBase>
+      <speed>110</speed>
+      <armorPenetrationSharp>24</armorPenetrationSharp>
+      <armorPenetrationBlunt>30</armorPenetrationBlunt>
+      <suppressionFactor>0.8</suppressionFactor>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBulletCE">
+    <defName>PA_CE_Bullet_Sprayer</defName>
+    <label>corrosive spray</label>
+    <graphicData>
+      <texPath>PS_Bullets</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>AcidBurn</damageDef>
+      <damageAmountBase>8</damageAmountBase>
+      <speed>40</speed>
+      <armorPenetrationSharp>2</armorPenetrationSharp>
+      <armorPenetrationBlunt>4</armorPenetrationBlunt>
+      <suppressionFactor>0.15</suppressionFactor>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBulletCE">
+    <defName>PA_CE_Bullet_PS</defName>
+    <label>pollution shotgun pellets</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>9</damageAmountBase>
+      <speed>60</speed>
+      <pelletCount>6</pelletCount>
+      <armorPenetrationSharp>4</armorPenetrationSharp>
+      <armorPenetrationBlunt>8</armorPenetrationBlunt>
+      <suppressionFactor>0.4</suppressionFactor>
+    </projectile>
+  </ThingDef>
+
+  <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>MakePA_CE_Ammo_PAR</defName>
+    <label>make pollution rifle cartridges x100</label>
+    <description>Craft 100 pollution rifle cartridges.</description>
+    <jobString>Making pollution rifle cartridges.</jobString>
+    <recipeUsers>
+      <li>TableMachining</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Wastepack</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+        <li>Wastepack</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <PA_CE_Ammo_PAR>100</PA_CE_Ammo_PAR>
+    </products>
+    <workAmount>1000</workAmount>
+  </RecipeDef>
+
+  <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>MakePA_CE_Ammo_PSR</defName>
+    <label>make pollution sniper cartridges x25</label>
+    <description>Craft 25 pollution sniper cartridges.</description>
+    <jobString>Making pollution sniper cartridges.</jobString>
+    <recipeUsers>
+      <li>FabricationBench</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Wastepack</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+        <li>Wastepack</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <PA_CE_Ammo_PSR>25</PA_CE_Ammo_PSR>
+    </products>
+    <workAmount>1800</workAmount>
+  </RecipeDef>
+
+  <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>MakePA_CE_Ammo_Sprayer</defName>
+    <label>make corrosive sprayer canisters x100</label>
+    <description>Craft 100 corrosive sprayer canisters.</description>
+    <jobString>Making corrosive sprayer canisters.</jobString>
+    <recipeUsers>
+      <li>FabricationBench</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Wastepack</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+        <li>Wastepack</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <PA_CE_Ammo_Sprayer>100</PA_CE_Ammo_Sprayer>
+    </products>
+    <workAmount>1500</workAmount>
+  </RecipeDef>
+
+  <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>MakePA_CE_Ammo_PS</defName>
+    <label>make pollution shotgun shells x100</label>
+    <description>Craft 100 pollution shotgun shells.</description>
+    <jobString>Making pollution shotgun shells.</jobString>
+    <recipeUsers>
+      <li>TableMachining</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Wastepack</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+        <li>Wastepack</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <PA_CE_Ammo_PS>100</PA_CE_Ammo_PS>
+    </products>
+    <workAmount>1200</workAmount>
+  </RecipeDef>
+
+</Defs>

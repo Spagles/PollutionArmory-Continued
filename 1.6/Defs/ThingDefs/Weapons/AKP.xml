@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>PAR</defName>
+    <label>Pollution Assault Rifle</label>
+    <description>The Pollution Assault Rifle, drawing from the legendary lineage of the AK47 and refined for modern combat, unleashes catastrophic power with its specially crafted contamination grenades, capable of inflicting fatal widespread damage on the enemy.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>AK_P</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.4</drawSize>
+    </graphicData>
+
+    <uiIconScale>1.2</uiIconScale>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <!--材料-->
+    <costList>
+        <Steel>80</Steel>
+        <ComponentIndustrial>7</ComponentIndustrial>
+        <Wastepack>40</Wastepack>
+    </costList>
+    <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+    <statBases>
+      <WorkToMake>35000</WorkToMake>
+      <Mass>4</Mass>
+      <AccuracyTouch>0.85</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.75</AccuracyMedium>
+      <AccuracyLong>0.60</AccuracyLong>
+      <RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <weaponTags Inherit="False">
+      <li>DGB</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedHeavy</li>
+    </weaponClasses>
+    <recipeMaker>
+    <!--建造-->
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <displayPriority>510</displayPriority>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_AKP</defaultProjectile>
+        <warmupTime>1.5</warmupTime>
+        <burstShotCount>5</burstShotCount>
+        <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+        <ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+        <range>27</range>
+        <soundCast>AK_S</soundCast>
+        <stopBurstWithoutLos>true</stopBurstWithoutLos>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <!--近战。工具-->
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+   <!--能力-->
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable">
+        <abilityDef>Pollution_grenade</abilityDef>
+        <maxCharges>3</maxCharges>
+        <soundReload>Interact_Rifle</soundReload>
+        <chargeNoun>Reloading</chargeNoun>
+        <ammoDef>Wastepack</ammoDef>     
+        <ammoCountPerCharge>5</ammoCountPerCharge>
+        <baseReloadTicks>60</baseReloadTicks>
+      </li>
+
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Styleable"/>
+      <li Class="CompProperties_Biocodable"/>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+
+    <generateCommonality>0</generateCommonality>
+  </ThingDef>
+
+  <!--弹药-->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_AKP</defName>
+    <label>Bullet_AKP</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>13</damageAmountBase>
+      <stoppingPower>2</stoppingPower>
+      <armorPenetrationBase>0.20</armorPenetrationBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+  <!--子子弹-->
+
+
+
+
+
+<!--声音-->
+  <SoundDef>
+    <defName>AK_L</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>AK_L</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>35~40</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+
+
+  <SoundDef>
+    <defName>AK_S</defName> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>AK_S</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>7~13</volumeRange>      
+        <pitchRange>0.9940217~1.084783</pitchRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>PollutionArmory[Continued]</name>
+  <author>https://steamcommunity.com/id/yzywd</author>
+  <packageId>POP.Pollutionweapons</packageId>
+  <modVersion>1.6.1</modVersion>
+  <url>https://steamcommunity.com/sharedfiles/filedetails/?id=3763065626</url>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>Ludeon.RimWorld.Biotech</packageId>
+      <displayName>Biotech</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li>Ludeon.RimWorld.Biotech</li>
+    <li>CETeam.CombatExtended</li>
+  </loadAfter>
+  <description><![CDATA[PollutionArmory[Continued] is a RimWorld 1.6 continuation of POP's Pollution weapon[Abandoned].
+
+Continuation changes:
+- Ported the mod to RimWorld 1.6 and rebuilt the former 1.5-only assembly against the current API.
+- Added explicit Biotech dependency and a 1.6 load-folder mapping.
+- Preserved the original defNames and packageId for save compatibility.
+- Base-game weapon balance and gameplay values remain unchanged; CE uses separate compatibility values for its ballistic model.
+- Includes optional Combat Extended (CE) 1.6 compatibility, with dedicated ammunition, CE ballistics, and CE-compatible ballistic handling for weapon abilities. When CE is enabled, load it before this mod; CE is not bundled with this mod.
+
+Original author: 顶针的马 / POP (https://steamcommunity.com/id/yzywd)
+Original mod: https://steamcommunity.com/sharedfiles/filedetails/?id=3276521515
+This is an independently maintained continuation, released with permission from the original author. Source repository: https://github.com/Juggernautsst/PollutionArmory-Continued
+Requires Biotech. Do not enable this together with the original mod.
+
+PollutionArmory[Continued] 是 POP 原作《Pollution weapon[Abandoned]》的 RimWorld 1.6 续作。
+
+续作改动：
+- 已适配 RimWorld 1.6，并依据当前 API 重建原先仅支持 1.5 的程序集。
+- 已声明 Biotech 依赖并新增 1.6 加载目录映射。
+- 保留原有 defName 和 packageId，以兼容旧存档。
+- 原版模式下未主动调整武器数值或玩法平衡；CE 因使用独立弹道模型而采用专用兼容数值。
+- 已包含可选的 Combat Extended（CE）1.6 兼容，包括专属弹药、CE 弹道与武器能力的 CE 弹道处理。启用 CE 时，请将 CE 排在本 Mod 前；本 Mod 不附带 CE。
+
+原作者：顶针的马 / POP（https://steamcommunity.com/id/yzywd）
+原 Mod：https://steamcommunity.com/sharedfiles/filedetails/?id=3276521515
+这是独立维护的续作，已获原作者许可发布。源码仓库：https://github.com/Juggernautsst/PollutionArmory-Continued
+需要 Biotech。请勿与原 Mod 同时启用。]]></description>
+</ModMetaData>

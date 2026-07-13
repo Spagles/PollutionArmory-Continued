@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>PSR</defName>
+    <label>Pollution Sniper Rifle</label>
+    <description>The Pollution Sniper Rifle is an M200 sniper rifle variant, equipped with an electromagnetic acceleration system, capable of firing contamination explosive rounds.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>M200_P</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.6</drawSize>
+
+    </graphicData>
+
+    <uiIconScale>1.3</uiIconScale>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <!--材料-->
+    <costList>
+        <Steel>50</Steel>
+        <Plasteel>80</Plasteel>
+        <ComponentSpacer>5</ComponentSpacer>
+        <Wastepack>60</Wastepack>
+    </costList>
+    <statBases>
+      <WorkToMake>45000</WorkToMake>
+      <Mass>4</Mass>
+      <AccuracyTouch>0.65</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.90</AccuracyMedium>
+      <AccuracyLong>0.95</AccuracyLong>
+      <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <weaponTags Inherit="False">
+      <li>DGB</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedHeavy</li>
+      <li>LongShots</li>
+    </weaponClasses>
+    <recipeMaker>
+    <!--建造-->
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>  <!--研究-->
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <displayPriority>510</displayPriority>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_MZOO</defaultProjectile>
+        <warmupTime>3.5</warmupTime>
+        <range>49</range>
+        <soundCast>M_S</soundCast>
+        <stopBurstWithoutLos>true</stopBurstWithoutLos>
+        <!-- <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams> -->
+        <muzzleFlashScale>20</muzzleFlashScale>
+      </li>
+    </verbs>
+    <!--近战。工具-->
+    <tools>
+      <li>
+        <label>limb</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <rotateInShelves>false</rotateInShelves>
+    <comps Inherit="False">
+ <!--能力-->
+      <li Class="CompProperties_EquippableAbilityReloadable">
+        <abilityDef>Pollution_MZOOS</abilityDef>
+        <maxCharges>4</maxCharges>
+        <soundReload>Interact_Rifle</soundReload>
+        <chargeNoun>Reloading</chargeNoun>
+        <ammoDef>Wastepack</ammoDef>
+        <ammoCountPerCharge>5</ammoCountPerCharge>
+        <baseReloadTicks>55</baseReloadTicks>
+      </li>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Styleable"/>
+      <li Class="CompProperties_Biocodable"/>
+
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <tickerType>Normal</tickerType>
+
+  </ThingDef>
+
+  <!--弹药-->
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_MZOO</defName>
+    <label>Bullet_M200</label>
+    <graphicData>
+      <texPath>Things/Projectile/ToxicNeedleShot</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>BulletToxic</damageDef>
+      <damageAmountBase>40</damageAmountBase>
+      <stoppingPower>3</stoppingPower>
+      <armorPenetrationBase>4</armorPenetrationBase>
+      <speed>110</speed>
+    </projectile>
+  </ThingDef>
+
+
+
+
+</Defs>
