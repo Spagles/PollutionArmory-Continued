@@ -55,7 +55,10 @@ namespace PollutionWweapons
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            Impact(null);
+            if (!respawningAfterLoad)
+            {
+                Impact(null);
+            }
         }
     }
 }
